@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Esfera</title>
+</head>
+<body>
+    <h1>Calculadora de Esfera</h1>
+    
+    <label for="raio">Digite o raio da esfera:</label>
+    <input type="number" id="raio" placeholder="Raio" required>
+    
+    <button onclick="calcular()">Calcular</button>
+    
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            // Recebe o raio da esfera
+            const raio = document.getElementById('raio').value;
+
+            // Verifica se o valor do raio é válido
+            if (raio <= 0) {
+                document.getElementById('resultado').innerHTML = "Por favor, insira um valor positivo para o raio.";
+                return;
+            }
+
+            // Cálculos
+            const comprimento = 2 * Math.PI * raio;
+            const area = Math.PI * Math.pow(raio, 2);
+            const volume = (4 / 3) * Math.PI * Math.pow(raio, 3);
+
+            // Exibindo os resultados
+            document.getElementById('resultado').innerHTML = `
+                <p><strong>Comprimento da esfera (C):</strong> ${comprimento.toFixed(2)} unidades.</p>
+                <p><strong>Área da esfera (A):</strong> ${area.toFixed(2)} unidades quadradas.</p>
+                <p><strong>Volume da esfera (V):</strong> ${volume.toFixed(2)} unidades cúbicas.</p>
+            `;
+        }
+    </script>
+</body>
+</html>
