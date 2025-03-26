@@ -17,21 +17,18 @@
 
     <script>
         function calcular() {
-            // Recebe o raio da esfera
+
             const raio = document.getElementById('raio').value;
 
-            // Verifica se o valor do raio é válido
             if (raio <= 0) {
                 document.getElementById('resultado').innerHTML = "Por favor, insira um valor positivo para o raio.";
                 return;
             }
 
-            // Cálculos
             const comprimento = 2 * Math.PI * raio;
             const area = Math.PI * Math.pow(raio, 2);
             const volume = (4 / 3) * Math.PI * Math.pow(raio, 3);
 
-            // Exibindo os resultados
             document.getElementById('resultado').innerHTML = `
                 <p><strong>Comprimento da esfera (C):</strong> ${comprimento.toFixed(2)} unidades.</p>
                 <p><strong>Área da esfera (A):</strong> ${area.toFixed(2)} unidades quadradas.</p>
